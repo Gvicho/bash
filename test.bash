@@ -1,45 +1,55 @@
 #!/bin/bash
-
-#es pirveli xazi ar aris sawiro yoveltvis mara 
-#sheizleba ro sxva Opsystemebshi sxva shelli iyos
-#es pirveli xazi ki akonkretebs ro bashs xmarob
-#aseve advili wasakitxia sxva progrsmistebistvisac
-# aseve am pirveli xazis gareshe OS am fails agiqvams rogorc teqstur fails
-# pirvel xazianad agiqvams rogorc executable bash files...
-
 clear
-echo "bash started..."
-sleep 3
-echo "The end"
+y=5
+read x
 sleep 1
 
-#ase shemogaq standartuli shemotanit
-read x
-
-#ase iwereba komentari
-
-#es aris if statmenti
-if [ $x -gt 4 ]
+#1)
+if (( $x < $y ));
 then
-echo $x
-echo "apaa raa"
-exit
+  echo "$x is smaller than $y"
 else
-echo "dagverxa"
+  echo "$x is bigger or equal to  $y"
 fi
 
-
-
-#while cikli
-while [ $x -gt 4 ]
+#2)
+while (( $x > $y ))
 do
-read x
-if (( x==0 ));
-then 
-echo "breaking"
-break
-fi
+  x=$(( ($x)-1 ))
+  echo "$x is current"
 done
 
-echo "morcha"
+#3)
+pow(){
+  x=$1
+  y=$2
+  y1=$y
+  z=1
+  if (( $y > 10 ));
+  then
+    echo "$y is too large "
+    return
+  fi
+  while (( $y1 > 0 ))
+  do
+     y1=$(( ($y1)-1 ))
+     z=$(( $x*$z ))
+  done
+  echo "$x to the power of $y is $z"
+}
 
+#funqciis agweris shemdeg shegvizlia misi agwera
+echo $( pow 4 3 )
+
+
+
+#experimental 5)
+
+fun(){
+  x=$1;
+  y=$x;
+  x=5;
+  echo $y
+}
+read j
+fun $j
